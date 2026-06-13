@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --color-primary: #18181B;
+  --color-secondary: #3F3F46;
+  --color-accent-lime: #CCFF00; /* Volt Acid Green */
+  --color-accent-orange: #FF5500; /* Signal Blast Orange */
+  --color-background: #0B0B0C;
+  --color-text-light: #FFFFFF;
+  --color-border-dark: #222224;
+}
+
+/* Global Reset and Styles */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  letter-spacing: 0.025em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Righteous', cursive;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+}
+
+/* CRT Scanlines Screen Overlay */
+.crt-screen::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.15) 50%
+  ), 
+  linear-gradient(
+    90deg, 
+    rgba(255, 0, 0, 0.015), 
+    rgba(0, 255, 0, 0.005), 
+    rgba(0, 0, 255, 0.015)
+  );
+  z-index: 100;
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Scanline animation moving down the screen */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.crt-screen::after {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.03) 10%,
+    rgba(255,255,255,0) 20%
+  );
+  animation: scanline 8s linear infinite;
+  z-index: 101;
+  pointer-events: none;
+}
+
+/* Glitch text effect */
+@keyframes glitch {
+  0% {
+    text-shadow: 2px -1px 0 rgba(255, 85, 0, 0.7), -1px 2px 0 rgba(204, 255, 0, 0.7);
+  }
+  25% {
+    text-shadow: -2px 1px 0 rgba(255, 85, 0, 0.7), 2px -2px 0 rgba(204, 255, 0, 0.7);
+  }
+  50% {
+    text-shadow: 1px -2px 0 rgba(255, 85, 0, 0.7), -2px 1px 0 rgba(204, 255, 0, 0.7);
+  }
+  75% {
+    text-shadow: -1px 2px 0 rgba(255, 85, 0, 0.7), 1px -1px 0 rgba(204, 255, 0, 0.7);
+  }
+  100% {
+    text-shadow: 2px -1px 0 rgba(255, 85, 0, 0.7), -1px 2px 0 rgba(204, 255, 0, 0.7);
+  }
+}
+
+.glitch-text:hover {
+  animation: glitch 0.2s steps(2, end) infinite;
+}
+
+/* Mixtape Spinning cassettes animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-active {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Solid offset shadow utilities for brutalism */
+.brutalist-shadow-lime {
+  box-shadow: 4px 4px 0px 0px var(--color-accent-lime);
+}
+
+.brutalist-shadow-orange {
+  box-shadow: 4px 4px 0px 0px var(--color-accent-orange);
+}
+
+.brutalist-shadow-white {
+  box-shadow: 4px 4px 0px 0px #FFFFFF;
+}
+
+.brutalist-button-lime {
+  border: 2px solid #FFFFFF;
+  background-color: var(--color-background);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+
+.brutalist-button-lime:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px 0px var(--color-accent-lime);
+  background-color: var(--color-accent-lime);
+  color: #000000;
+  border-color: #000000;
+}
+
+.brutalist-button-orange {
+  border: 2px solid #FFFFFF;
+  background-color: var(--color-background);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+
+.brutalist-button-orange:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px 0px var(--color-accent-orange);
+  background-color: var(--color-accent-orange);
+  color: #000000;
+  border-color: #000000;
+}
+
+/* Custom scrolling ticker tape (marquee) styling */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-content {
+  display: inline-flex;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* VHS lines and noise overlay */
+.vhs-lines {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
