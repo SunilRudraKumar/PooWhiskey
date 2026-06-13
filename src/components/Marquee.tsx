@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface MarqueeProps {
   text: string;
   speedClass?: string; // Optional custom speed class
@@ -8,13 +6,13 @@ interface MarqueeProps {
   borderColor?: string;
 }
 
-export const Marquee: React.FC<MarqueeProps> = ({
+export const Marquee = ({
   text,
   speedClass = 'animate-[marquee_60s_linear_infinite]',
   bgColor = 'bg-accent-lime',
   textColor = 'text-black font-bold uppercase',
   borderColor = 'border-y-2 border-black'
-}) => {
+}: MarqueeProps) => {
   // Repeat the text several times to cover wide screens
   const repeatedText = Array(5).fill(text).join('  ///  ');
 

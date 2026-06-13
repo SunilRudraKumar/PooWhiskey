@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Marquee } from './components/Marquee';
 import { tracks, videos } from './data/tracks';
 import './App.css';
