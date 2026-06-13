@@ -2,11 +2,11 @@
 
 @import "tailwindcss";
 
-:root {
+@theme {
   --color-primary: #18181B;
   --color-secondary: #3F3F46;
-  --color-accent-lime: #CCFF00; /* Volt Acid Green */
-  --color-accent-orange: #FF5500; /* Signal Blast Orange */
+  --color-accent-lime: #CCFF00;
+  --color-accent-orange: #FF5500;
   --color-background: #0B0B0C;
   --color-text-light: #FFFFFF;
   --color-border-dark: #222224;
