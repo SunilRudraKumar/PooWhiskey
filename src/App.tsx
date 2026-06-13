@@ -13,7 +13,7 @@ export const App = () => {
         
         {/* Header Section */}
         <header className="mb-16 text-center border-4 border-white p-8 md:p-16 brutalist-shadow-lime bg-primary">
-          <h1 className="text-5xl md:text-8xl font-black mb-4 glitch-text text-accent-lime uppercase tracking-tighter">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black mb-4 glitch-text text-accent-lime uppercase tracking-tighter break-words">
             Poo'Whiskey
           </h1>
           <p className="text-xl md:text-3xl font-bold uppercase text-accent-orange tracking-widest">
